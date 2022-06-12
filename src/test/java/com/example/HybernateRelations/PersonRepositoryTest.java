@@ -52,9 +52,9 @@ class PersonRepositoryTest {
     //given
         Addres adres1 = new Addres("Sosnowiec", "Staszica", "41-200", "14/1");
         Person person1 = new Person("Artur", "Szmer", 33, adres1);
-        Person save = personRepository.save(person1);
+        Person operation = personRepository.save(person1);
         //when
-        save.getAdress().setStreet("Wysoka");
+        operation.getAdress().setStreet("Wysoka");
         Optional<Addres> person = addresRepository.findByStreet("Wysoka");
         //then
         assertThat(person.isPresent()).isTrue();

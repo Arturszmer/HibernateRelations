@@ -55,9 +55,9 @@ class PersonRepositoryTest {
         Person operation = personRepository.save(person1);
         //when
         operation.getAdress().setStreet("Wysoka");
-        Optional<Addres> person = addresRepository.findByStreet("Wysoka");
+        Optional<Addres> adres = addresRepository.findByStreet("Wysoka");
         //then
-        assertThat(person.isPresent()).isTrue();
+        assertThat(adres.isPresent()).isTrue();
     }
 
 

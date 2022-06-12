@@ -12,15 +12,14 @@ public class Address {
     private String street;
     private String zipCode;
     private String house_nr;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Person person;
 
-    public Address(String city, String street, String zipCode, String house_nr, Person person) {
+    public Address(String city, String street, String zipCode, String house_nr) {
         this.city = city;
         this.street = street;
         this.zipCode = zipCode;
         this.house_nr = house_nr;
-        this.person = person;
     }
 
     public Address() {
@@ -75,5 +74,9 @@ public class Address {
                 ", house_nr='" + house_nr + '\'' +
                 ", person=" + person +
                 '}';
+    }
+    public void removePerson(){
+        person.setAdress(null);
+        this.person = null;
     }
 }
